@@ -1,0 +1,3 @@
+svgutils
+svg_to_gcode
+lxml
