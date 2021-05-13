@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" height="580.0" width="760.0" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  >
+<rect style="stroke:rgb(200,200,150); stroke-width:0.5; fill:rgb(255,255,240); " height="580.0" width="760.0" y="0" x="0"  />
+<text font-size="20" y="25" x="5" fill="rgb(200,200,150)"  >
+0, 0</text>
+<text font-size="20" y="575.0" x="645.0" fill="rgb(200,200,150)"  >
+760.0, 580.0</text>
+<text font-size="20" y="-5" x="5" fill="rgb(200,200,150)"  >
+0, 0</text>
+<text font-size="20" y="605.0" x="645.0" fill="rgb(200,200,150)"  >
+760.0, 580.0</text>
+<rect style="stroke:rgb(100, 255, 100); stroke-width:0.5; fill:rgb(240,255,240); " height="400.0" width="390.0" y="180.0" x="185.0"  />
+<text font-size="20" y="205.0" x="190.0" fill="rgb(100, 255, 100)"  >
+185.0, 180.0</text>
+<text font-size="20" y="575.0" x="460.0" fill="rgb(100, 255, 100)"  >
+575.0, 580.0</text>
+<line y1="354.3" x2="469.3" style="stroke:rgb(255,100,100); stroke-width:0.2; " x1="290.7" y2="354.3"  />
+<line y1="354.3" x2="469.3" style="stroke:rgb(255,100,100); stroke-width:0.2; " x1="469.3" y2="180.7"  />
+<line y1="180.7" x2="290.7" style="stroke:rgb(255,100,100); stroke-width:0.2; " x1="469.3" y2="180.7"  />
+<line y1="180.7" x2="290.7" style="stroke:rgb(255,100,100); stroke-width:0.2; " x1="290.7" y2="354.3"  />
+<rect style="stroke:rgb(128,128,128); stroke-width:0.5; fill:none; " height="173.6" width="178.6" y="180.7" x="290.7"  />
+<text font-size="20" y="175.7" x="295.7" fill="rgb(128,128,128)"  >
+290.7, 180.7</text>
+<text font-size="20" y="379.3" x="354.3" fill="rgb(128,128,128)"  >
+469.3, 354.3</text>
+</svg>
