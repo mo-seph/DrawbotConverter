@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="811">
+  <circle r=".5" stroke="#000" fill="none" transform="matrix(351.96188 0 0 -351.96188 390 405.5)" stroke-width=".1"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-131.96188 151.96188) rotate(-60 .444 1.536)" stroke-width=".1"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(151.96188 -171.96188) rotate(-60 -.444 -1.536)" stroke-width=".1"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(151.96188 -151.96188) rotate(60 1.552 .384)" stroke-width=".1"/>
+
+</svg>

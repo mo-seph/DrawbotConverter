@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="811">
+  <circle r=".5" stroke="#000" fill="none" transform="matrix(351.96188 0 0 -351.96188 390 405.5)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-351.96188 351.96188) rotate(-60 .444 1.536)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(351.96188 -351.96188) rotate(-60 -.444 -1.536)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(351.96188 -351.96188) rotate(60 1.552 .384)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-351.96188 351.96188) rotate(60 -1.552 -.384)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="matrix(-351.96188 0 0 351.96188 390 405.5)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-341.40302 341.40302) rotate(-57 .5 1.609)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-341.40302 341.40302) rotate(63 -1.56 -.304)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(341.40302 -341.40302) rotate(-57 -.545 -1.683)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(341.40302 -341.40302) rotate(3 23.27 22.006)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(341.40302 -341.40302) rotate(63 1.521 .373)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-341.40302 341.40302) rotate(3 -23.23 -20.43)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-331.16093 331.16093) rotate(-54 .565 1.69)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(331.16093 -331.16093) rotate(-54 -.661 -1.846)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-331.16093 331.16093) rotate(66 -1.568 -.227)" stroke-width=".002"/>
+  <circle r=".5" stroke="#000" fill="none" transform="scale(-331.16093 331.16093) rotate(6 -12.25 -9.824)" stroke-width=".002"/>
+</svg>

@@ -1,3 +1,6 @@
 svgutils
 svg_to_gcode
 lxml
+numpy
+svgwrite
+svgpathtools

@@ -48,7 +48,7 @@ class DrawbotInterface(interfaces.Gcode):
 
 def to_gcode(svgfile,gcodefile):
     gcode_compiler = Compiler(DrawbotInterface, movement_speed=1000, cutting_speed=300, pass_depth=0)
-    curves = parse_file(svgfile) # Parse an svg file into geometric curves
+    curves = parse_file(svgfile, transform_origin=False) # Parse an svg file into geometric curves
     gcode_compiler.append_curves(curves)
     gcode_compiler.compile_to_file(gcodefile, passes=1)
 
@@ -58,4 +58,5 @@ def to_gcode(svgfile,gcodefile):
 if __name__ == '__main__':
     print("Converting SVG...")
     #to_gcode("output/scrambler_transformed.svg","output/scrambler_transformed.gcode")
-    to_gcode("intermediate/circ5.svg","output/circ5.gcode")
+    #to_gcode("intermediate/circ5.svg","output/circ5.gcode")
+    to_gcode("data/regen/inkscape_pyramid_150-1.svg","test/pyramid_150.gcode")
