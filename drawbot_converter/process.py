@@ -41,18 +41,22 @@ if __name__ == '__main__':
     s = BotSetup(
         bot_width=760,
         bot_height=580,
-        paper_width=584,
-        paper_height=420,
+        paper_width=418,
+        paper_height=297, # *2 for A2
         drawing_width=380,
-        drawing_height=380
-    ).center_paper().center_drawing()
+        #drawing_height=380
+        drawing_height=150
+    ).add_magnets(inset=180,height=100) \
+        .top_center_paper(90).top_center_drawing(40)
+        #.add_magnets(inset=140,height=160,active=False) \
 
     if len(sys.argv) > 1:
         pathlist = [pathlib.Path(sys.argv[1])]
     else:
         pathlist = pathlib.Path("data/test").glob('**/*.svg')
     processors = [
-        TransformerSVGUtils(), TransformerSVGPathTools()
+        #TransformerSVGUtils(), 
+        TransformerSVGPathTools()
     ]
     for path in pathlist:
         for p in processors:
@@ -64,7 +68,7 @@ if __name__ == '__main__':
             #check_gcode = f"data/regen/{stem}-{i}.svg"
             #print(f"\n*********************\nProcessing {path} to {processed} and {gcode}\n***************")
             try:
-                p.run_test(s,path)
+                p.run_test(s,path,do_transform=True)
                 #processors[i](s,str(path),processed,check_svg,gcode,check_gcode)
             except Exception as e:
                 print(f"Couldn't process path {path}:\n{e}")

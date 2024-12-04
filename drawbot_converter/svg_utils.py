@@ -11,7 +11,7 @@ def parse_numbers_units(input):
 
     Currently stupid - doesn't deal with what the units mean...
     '''
-    return [ float(re.sub("[^\\d\\.-]", "", x) ) for x in vb.split()]
+    return [ float(re.sub("[^\\d\\.-]", "", x) ) for x in input.split()]
 
 def size_abs(input):
     if "%" in input:

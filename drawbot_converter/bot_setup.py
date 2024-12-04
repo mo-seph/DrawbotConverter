@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass,field
 
 @dataclass
 class BoundingBox:
@@ -32,7 +32,7 @@ class BoundingBox:
         return BoundingBox(place_x,place_y,place_x + final_width,place_y + final_height)
 
     def __str__(self):
-        return f"BoundingBox: [{self.xmin},{self.ymin}] to [{self.xmax},{self.ymax}]"
+        return f"BoundingBox => min:[{self.xmin},{self.ymin}] max: [{self.xmax},{self.ymax}]"
 
 @dataclass
 class Transform:
@@ -44,21 +44,33 @@ class Transform:
         return f"Transform: [scale:{self.scale},x:{self.x_offset},y:{self.y_offset}]"
 
 @dataclass
+class Magnet:
+    x: float
+    y: float
+    active: bool = True
+
+@dataclass
 class BotSetup:
-    bot_width:float
-    bot_height:float
-    paper_width:float
-    paper_height:float
-    drawing_width:float
-    drawing_height:float
+    bot_width:float = 760
+    bot_height:float = 580
+    paper_width:float = 418
+    paper_height:float = 297 # *2 for A2
+    drawing_width:float = 380
+    drawing_height:float = 150
     paper_offset_w:float = 0
     paper_offset_h:float = 0
     drawing_offset_w:float = 0
     drawing_offset_h:float = 0
+    magnets: list[Magnet] = field(default_factory=list)
 
     def center_paper(self):
         self.paper_offset_w = (self.bot_width - self.paper_width)/2
         self.paper_offset_h = (self.bot_height - self.paper_height)/2
+        return self
+
+    def top_center_paper(self,offset):
+        self.paper_offset_w = (self.bot_width - self.paper_width)/2
+        self.paper_offset_h = offset
         return self
 
     def center_drawing(self):
@@ -69,6 +81,11 @@ class BotSetup:
     def top_center_drawing(self,offset):
         self.drawing_offset_w = self.paper_offset_w + (self.paper_width - self.drawing_width)/2
         self.drawing_offset_h = self.paper_offset_h + offset
+        return self
+
+    def add_magnets(self,inset,height,active=True):
+        self.magnets.append(Magnet(inset,height,active))
+        self.magnets.append(Magnet(self.bot_width-inset,height,active))
         return self
 
     def bot_box(self):

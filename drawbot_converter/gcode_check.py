@@ -34,7 +34,7 @@ def gcode_to_svg(infile,outfile,width=760,height=580):
                 y = float(m.group(2))
                 if drawing:
                     fig.append(
-                        sg.LineElement([[x1,y1],[x,y]],"1.0","black")
+                        sg.LineElement([[x1,y1],[x,y]],"0.2","black")
                     )
                 else:
                     pass
