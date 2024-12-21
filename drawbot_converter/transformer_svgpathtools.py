@@ -91,7 +91,7 @@ class TransformerSVGPathTools(SvgTransformer):
 
 def path_ordering(p):
     try:
-        return p.bbox()[0] + p.bbox()[1]
+        return p.bbox()[2] + p.bbox()[3]
     except Exception as e:
         return 0
 

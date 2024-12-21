@@ -31,6 +31,18 @@ class BoundingBox:
 
         return BoundingBox(place_x,place_y,place_x + final_width,place_y + final_height)
 
+    def fill_target(self, target):
+        '''A bounding box that fills the target, preserving scale but potentially extending beyond target bounds'''
+        width_scale = target.width() / self.width()
+        height_scale = target.height() / self.height()
+
+        scale = max(width_scale, height_scale)  # Use max instead of min to fill rather than fit
+        final_width = self.width() * scale
+        final_height = self.height() * scale
+        place_x = target.xmin + (target.width() - final_width) / 2
+        place_y = target.ymin + (target.height() - final_height) / 2
+
+        return BoundingBox(place_x, place_y, place_x + final_width, place_y + final_height)
     def __str__(self):
         return f"BoundingBox => min:[{self.xmin},{self.ymin}] max: [{self.xmax},{self.ymax}]"
 
@@ -61,6 +73,7 @@ class BotSetup:
     paper_offset_h:float = 0
     drawing_offset_w:float = 0
     drawing_offset_h:float = 0
+    fill_target: bool = False
     magnets: list[Magnet] = field(default_factory=list)
 
     def center_paper(self):
@@ -87,6 +100,27 @@ class BotSetup:
         self.magnets.append(Magnet(inset,height,active))
         self.magnets.append(Magnet(self.bot_width-inset,height,active))
         return self
+    
+    def a3_paper(self):
+        self.paper_width = 420
+        self.paper_height = 297
+        return self
+    
+    def a2_paper(self):
+        self.paper_width = 420
+        self.paper_height = 594
+        return self
+    
+    def rodalm_21_30(self):
+        self.drawing_width = 180
+        self.drawing_height = 130
+        return self
+    
+    def standard_magnets(self):
+        self.add_magnets(inset=180,height=100) \
+            .add_magnets(inset=140,height=160,active=False)
+        return self
+    
 
     def bot_box(self):
         '''Returns BoundingBox of the Bot'''
@@ -110,4 +144,41 @@ class BotSetup:
             self.drawing_offset_h+ self.drawing_height)
 
     def place_image(self,image_box:BoundingBox) -> BoundingBox :
+        if self.fill_target:
+            return image_box.fill_target(self.drawing_box())
         return image_box.place_inside(self.drawing_box())
+
+    @classmethod
+    def from_json(cls, json_data: dict, transforms: list[str] = None):
+        """Create a BotSetup instance from a JSON object and apply optional transforms.
+        
+        Example JSON:
+        {
+            "bot_width": 760,
+            "bot_height": 580,
+            "transforms": ["a3_paper", "center_paper", ["add_magnets", 180, 100]]
+        }
+        """
+        # Extract transforms from JSON if not provided as argument
+        transforms = transforms or json_data.get('transforms', [])
+        
+        # Remove transforms from json_data to avoid passing it to constructor
+        if 'transforms' in json_data:
+            json_data = {k: v for k, v in json_data.items() if k != 'transforms'}
+        
+        # Create instance with basic properties
+        instance = cls(**json_data)
+        
+        # Apply transforms
+        for transform in transforms:
+            if isinstance(transform, list):
+                # Handle transforms with arguments: ["method_name", arg1, arg2, ...]
+                method_name, *args = transform
+                method = getattr(instance, method_name)
+                method(*args)
+            else:
+                # Handle simple transforms: "method_name"
+                method = getattr(instance, transform)
+                method()
+        
+        return instance

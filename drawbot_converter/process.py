@@ -38,18 +38,19 @@ if __name__ == '__main__':
     #file = "input/hexshell.svg"
     #file = "input/hexshell_minified.svg"
 
-    s = BotSetup(
-        bot_width=760,
-        bot_height=580,
-        paper_width=418,
-        paper_height=297, # *2 for A2
-        drawing_width=380,
-        #drawing_height=380
-        drawing_height=150
-    ).add_magnets(inset=180,height=100) \
-        .top_center_paper(90).top_center_drawing(40)
-        #.add_magnets(inset=140,height=160,active=False) \
-
+    s = BotSetup.from_json(
+        {
+            "bot_width": 760,
+            "bot_height": 580,
+            "fill_target": True,
+            "transforms": [
+                "standard_magnets", 
+                "a3_paper",  
+                ["top_center_paper",90],
+                "rodalm_21_30", 
+                ["top_center_drawing",80]
+            ]
+        })
     if len(sys.argv) > 1:
         pathlist = [pathlib.Path(sys.argv[1])]
     else:

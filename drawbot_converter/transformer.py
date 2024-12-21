@@ -44,8 +44,11 @@ class SvgTransformer:
         print(f"Bounding rectangle for drawing: {drawing_box}")
         initial_box = self.get_svg_bounding_box(infile)
         print(f"Bounding box of SVG input file: {initial_box}")
-        fitted_box = initial_box.place_inside(drawing_box)
-        print(f"Target box for SVG on drwabot : {fitted_box}")
+        if setup.fill_target:
+            fitted_box = initial_box.fill_target(drawing_box)
+        else:
+            fitted_box = initial_box.place_inside(drawing_box)
+        print(f"Target box for SVG on drawbot: {fitted_box}")
         trans = initial_box.translate_to(fitted_box)
         print(f"=> {trans}")
         self.do_transform(setup,infile,outfile,initial_box,trans)
@@ -110,8 +113,8 @@ class SvgTransformer:
         self.rect(fig,x,y,w,h,width=1,color=color,fill=fill),
         if text:
             fig.append([
-                sg.TextElement(x,y+top_offset, f"{name}: ({x},{y})", size=12, weight="bold"),
-                sg.TextElement(x+w,y+h+bottom_offset, f"({x+w},{y+h})", size=12, weight="bold",anchor="end"),
+                sg.TextElement(x,y+top_offset, f"{name}: (x:{x},y:{y},w:{w},h:{h})", size=12, weight="bold"),
+                sg.TextElement(x+w,y+h+bottom_offset, f"({x+w},y:{y+h})", size=12, weight="bold",anchor="end"),
             ] )
     
     def magnet(self,fig,mag,size=4):
