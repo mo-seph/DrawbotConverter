@@ -101,18 +101,18 @@ class BotSetup:
         self.magnets.append(Magnet(self.bot_width-inset,height,active))
         return self
     
-    def a3_paper(self):
+    def a3_paper(self,paper_offset_h=80,drawing_offset_h=80):
         self.paper_width = 420
         self.paper_height = 297
-        self.paper_offset_h = 80
-        self.drawing_offset_h = 80
+        self.paper_offset_h = paper_offset_h
+        self.drawing_offset_h = drawing_offset_h
         return self
     
-    def a2_paper(self):
+    def a2_paper(self,paper_offset_h=80,drawing_offset_h=80 ):
         self.paper_width = 420
         self.paper_height = 594
-        self.paper_offset_h = 80
-        self.drawing_offset_h = 80
+        self.paper_offset_h = paper_offset_h
+        self.drawing_offset_h = drawing_offset_h
         return self
     
     def rodalm_21_30(self):
