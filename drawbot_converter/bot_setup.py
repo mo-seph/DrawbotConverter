@@ -104,11 +104,15 @@ class BotSetup:
     def a3_paper(self):
         self.paper_width = 420
         self.paper_height = 297
+        self.paper_offset_h = 80
+        self.drawing_offset_h = 80
         return self
     
     def a2_paper(self):
         self.paper_width = 420
         self.paper_height = 594
+        self.paper_offset_h = 80
+        self.drawing_offset_h = 80
         return self
     
     def rodalm_21_30(self):
