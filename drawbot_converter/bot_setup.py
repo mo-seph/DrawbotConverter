@@ -115,10 +115,41 @@ class BotSetup:
         self.drawing_offset_h = drawing_offset_h
         return self
     
+    def rodalm_13_18(self):
+        self.drawing_width = 150
+        self.drawing_height = 100
+        return self
+    
+    def rodalm_13_18_raw(self):
+        self.drawing_width = 180
+        self.drawing_height = 130
+        return self
+    
     def rodalm_21_30(self):
         self.drawing_width = 180
         self.drawing_height = 130
         return self
+    
+    def rodalm_30_40(self):
+        self.drawing_width = 210
+        self.drawing_height = 300
+        return self
+    
+    def rodalm_40_50(self):
+        self.drawing_width = 300
+        self.drawing_height = 400
+        return self
+
+    def sannahed_25(self):
+        self.drawing_width = 130
+        self.drawing_height = 130
+        return self
+    
+    def sannahed_25_raw(self):
+        self.drawing_width = 250
+        self.drawing_height = 250
+        return self
+    
     
     def standard_magnets(self):
         self.add_magnets(inset=180,height=100) \
