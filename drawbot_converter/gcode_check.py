@@ -18,10 +18,15 @@ def gcode_to_svg(infile,outfile,width=760,height=580):
     fig.root.set('width',w)
 
     points =[[0,0],[width,0],[width,height],[0,height],[0,0]]
-    rect = sg.LineElement(points,"1.0","red")
+    rect = sg.LineElement(points,"1.0","grey")
     rect.root.attrib['fill'] = 'none'
     fig.append(rect)
-
+    top_limit = 170
+    side_limit = 185
+    # Draw a red line at 170mm for the top limit of movement
+    r2 = sg.LineElement([[side_limit,height],[side_limit,top_limit],[width-side_limit,top_limit],[width-side_limit,height]],"2.0","red")
+    r2.root.attrib['fill'] = 'none'
+    fig.append(r2)
     with open(infile) as fp:
         for cnt, line in enumerate(fp):
             if pen_down.match(line):
