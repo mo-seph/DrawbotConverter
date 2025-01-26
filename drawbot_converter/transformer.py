@@ -97,8 +97,8 @@ class SvgTransformer:
         pxx = px + setup.paper_width
         pyy = py + setup.paper_height
         self.label_rect(fig,0,0,setup.bot_width,setup.bot_height,name="Bot",color="red",fill="None",inside=True,text=text)
-        self.label_rect(fig,setup.paper_offset_w,setup.paper_offset_h,setup.paper_width,setup.paper_height,name="Paper",color="green",fill="None",text=text)
-        self.label_rect(fig,setup.drawing_offset_w,setup.drawing_offset_h,setup.drawing_width,setup.drawing_height,name="Drawing",color="blue",fill="None",text=text)
+        self.label_rect(fig,setup.paper_offset_w,setup.paper_offset_h,setup.paper_width,setup.paper_height,name="Paper",color="green",fill="none",text=text)
+        self.label_rect(fig,setup.drawing_offset_w,setup.drawing_offset_h,setup.drawing_width,setup.drawing_height,name="Drawing",color="none",fill="#0000ff15",text=text)
         for m in setup.magnets:
             self.magnet(fig,m)
         #self.magnet(fig,180,100,4)
