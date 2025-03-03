@@ -75,6 +75,7 @@ class BotSetup:
     drawing_offset_h:float = 0
     fill_target: bool = False
     magnets: list[Magnet] = field(default_factory=list)
+    minimum_y_offset:float = 175
 
     def center_paper(self):
         self.paper_offset_w = (self.bot_width - self.paper_width)/2
@@ -153,7 +154,8 @@ class BotSetup:
     
     def standard_magnets(self):
         self.add_magnets(inset=180,height=100) \
-            .add_magnets(inset=140,height=160,active=False)
+            .add_magnets(inset=105,height=175,active=False) \
+            .add_magnets(inset=180,height=250,active=True)
         return self
     
 
