@@ -64,7 +64,7 @@ class Magnet:
 @dataclass
 class BotSetup:
     bot_width:float = 760
-    bot_height:float = 580
+    bot_height:float = 680
     paper_width:float = 418
     paper_height:float = 297 # *2 for A2
     drawing_width:float = 380
@@ -76,6 +76,7 @@ class BotSetup:
     fill_target: bool = False
     magnets: list[Magnet] = field(default_factory=list)
     minimum_y_offset:float = 175
+    x_margins:float = 185
 
     def center_paper(self):
         self.paper_offset_w = (self.bot_width - self.paper_width)/2
